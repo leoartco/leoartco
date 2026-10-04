@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="t d">
+  <title id="t">leoartco</title>
+  <desc id="d">AI, IoT, robotics and Cloud, connected.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#101a33"/>
+      <stop offset="1" stop-color="#0d2a3a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.68" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.045"/>
+    </pattern>
+    <clipPath id="r"><rect width="1280" height="320" rx="18"/></clipPath>
+    <!-- The cycle: cloud → AI → home → robot → back to cloud -->
+    <path id="p-cloud-ai" d="M646 116 C 712 116, 716 190, 760 190"/>
+    <path id="p-ai-home" d="M840 190 C 902 190, 926 128, 970 128"/>
+    <path id="p-home-robot" d="M1048 128 C 1100 128, 1104 211, 1138 211"/>
+    <path id="p-robot-cloud" d="M1180 242 C 1180 300, 620 304, 600 142"/>
+  </defs>
+  <style>
+    .flow { stroke-dasharray: 6 10; animation: f 1.6s linear infinite; }
+    @keyframes f { to { stroke-dashoffset: -32; } }
+    .float-a { animation: fa 6s ease-in-out infinite; }
+    .float-b { animation: fa 6s ease-in-out -2s infinite; }
+    .float-c { animation: fa 6s ease-in-out -4s infinite; }
+    @keyframes fa { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+    .halo { animation: h 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes h { 0%,100% { opacity: .5; transform: scale(.92) } 50% { opacity: 1; transform: scale(1.06) } }
+    .pulse { animation: p 2.4s ease-in-out infinite; }
+    @keyframes p { 0%,100% { opacity: .35 } 50% { opacity: 1 } }
+    .blink { transform-box: fill-box; transform-origin: center; animation: b 4.5s ease-in-out infinite; }
+    @keyframes b { 0%,92%,100% { transform: scaleY(1) } 96% { transform: scaleY(0.1) } }
+    @media (prefers-reduced-motion: reduce) {
+      .flow, .float-a, .float-b, .float-c, .halo, .pulse, .blink { animation: none; }
+      .pkt { display: none; }
+    }
+  </style>
+
+  <g clip-path="url(#r)">
+    <rect width="1280" height="320" fill="url(#bg)"/>
+    <rect width="1280" height="320" fill="url(#grid)"/>
+    <rect width="1280" height="320" fill="url(#glow)"/>
+
+    <!-- Text -->
+    <g font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+      <text x="72" y="158" font-size="64" font-weight="700" fill="#f8fafc" letter-spacing="-1">leoartco</text>
+      <rect x="74" y="180" width="96" height="4" rx="2" fill="url(#accent)"/>
+      <text x="72" y="228" font-size="24" fill="#cbd5e1" letter-spacing="1">AI · IoT · Robotics · Cloud</text>
+    </g>
+
+    <!-- Connections -->
+    <g fill="none" stroke-width="2" stroke-linecap="round">
+      <use href="#p-cloud-ai" stroke="#22d3ee" stroke-opacity="0.22"/>
+      <use href="#p-ai-home" stroke="#a78bfa" stroke-opacity="0.22"/>
+      <use href="#p-home-robot" stroke="#38bdf8" stroke-opacity="0.22"/>
+      <use href="#p-robot-cloud" stroke="#2dd4bf" stroke-opacity="0.14"/>
+      <use class="flow" href="#p-cloud-ai" stroke="#22d3ee"/>
+      <use class="flow" href="#p-ai-home" stroke="#a78bfa"/>
+      <use class="flow" href="#p-home-robot" stroke="#38bdf8"/>
+      <use class="flow" href="#p-robot-cloud" stroke="#2dd4bf" stroke-opacity="0.55"/>
+    </g>
+
+    <!-- Data packets -->
+    <g class="pkt">
+      <circle r="4" fill="#22d3ee"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#p-cloud-ai"/></animateMotion></circle>
+      <circle r="4" fill="#a78bfa"><animateMotion dur="2.2s" begin="0.7s" repeatCount="indefinite"><mpath href="#p-ai-home"/></animateMotion></circle>
+      <circle r="4" fill="#38bdf8"><animateMotion dur="2.2s" begin="1.4s" repeatCount="indefinite"><mpath href="#p-home-robot"/></animateMotion></circle>
+      <circle r="3.5" fill="#2dd4bf"><animateMotion dur="4.4s" begin="0.3s" repeatCount="indefinite"><mpath href="#p-robot-cloud"/></animateMotion></circle>
+    </g>
+
+    <!-- Cloud -->
+    <g transform="translate(535 71)">
+      <circle class="halo" cx="65" cy="41" r="62" fill="#22d3ee" fill-opacity="0.06"/>
+      <g class="float-c">
+        <path d="M28 66 H86 a20 20 0 0 0 2-39.9 A28 28 0 0 0 34 22 a22 22 0 0 0-6 44z" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5" stroke-linejoin="round"/>
+      </g>
+    </g>
+
+    <!-- AI chip -->
+    <g transform="translate(768 158)">
+      <circle class="halo" cx="32" cy="32" r="56" fill="#a78bfa" fill-opacity="0.06"/>
+      <g class="float-b">
+        <g stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round">
+          <path d="M18 0v-8M32 0v-8M46 0v-8M18 64v8M32 64v8M46 64v8M0 18h-8M0 32h-8M0 46h-8M64 18h8M64 32h8M64 46h8"/>
+        </g>
+        <rect width="64" height="64" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2.5"/>
+        <g transform="translate(32 32)" stroke="#a78bfa" stroke-linecap="round">
+          <path d="M-13 -9 L0 -14 M-13 -9 L0 0 M-13 -9 L0 14 M-13 9 L0 -14 M-13 9 L0 0 M-13 9 L0 14 M0 -14 L13 -9 M0 0 L13 -9 M0 14 L13 -9 M0 -14 L13 9 M0 0 L13 9 M0 14 L13 9" stroke-opacity="0.5" stroke-width="1.1"/>
+          <g fill="#c4b5fd" stroke="none">
+            <circle cx="-13" cy="-9" r="2.6"/><circle cx="-13" cy="9" r="2.6"/>
+            <circle cx="0" cy="-14" r="2.6"/><circle cx="0" cy="0" r="2.6"/><circle cx="0" cy="14" r="2.6"/>
+            <circle cx="13" cy="-9" r="2.6"/><circle cx="13" cy="9" r="2.6"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- Home hub -->
+    <g transform="translate(972 71)">
+      <circle class="halo" cx="38" cy="41" r="58" fill="#38bdf8" fill-opacity="0.06"/>
+      <g class="float-a">
+        <path d="M4 36 L38 8 L72 36 V74 H4 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="28" y="48" width="20" height="26" rx="3" fill="none" stroke="#38bdf8" stroke-width="2"/>
+        <circle class="pulse" cx="38" cy="32" r="5" fill="#4ade80"/>
+      </g>
+    </g>
+
+    <!-- Robot -->
+    <g transform="translate(1180 207) scale(1.3)">
+      <circle class="halo" r="40" fill="#2dd4bf" fill-opacity="0.07"/>
+      <g class="float-c">
+        <path d="M0 -14 V-23" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
+        <circle class="pulse" cy="-27" r="4" fill="#2dd4bf"/>
+        <rect x="-29" y="-4" width="6" height="14" rx="3" fill="#0f172a" stroke="#2dd4bf" stroke-width="2"/>
+        <rect x="23" y="-4" width="6" height="14" rx="3" fill="#0f172a" stroke="#2dd4bf" stroke-width="2"/>
+        <rect x="-23" y="-14" width="46" height="36" rx="11" fill="#0f172a" stroke="#2dd4bf" stroke-width="2.5"/>
+        <circle class="blink" cx="-9" cy="2" r="4" fill="#5eead4"/>
+        <circle class="blink" cx="9" cy="2" r="4" fill="#5eead4"/>
+        <path d="M-6 13 H6" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <rect x="0.5" y="0.5" width="1279" height="319" rx="18" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+  </g>
+</svg>
